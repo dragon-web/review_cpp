@@ -1,0 +1,5 @@
+﻿  vector.cpp
+c:\users\飞龙\desktop\review_cpp\stl\stl\vector.cpp(45): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\飞龙\desktop\review_cpp\stl\stl\vector.cpp(53): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\飞龙\desktop\review_cpp\stl\stl\vector.cpp(55): warning C4018: “<”: 有符号/无符号不匹配
+  STL.vcxproj -> C:\Users\飞龙\Desktop\review_cpp\STL\Debug\STL.exe
