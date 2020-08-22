@@ -118,10 +118,14 @@
     <ClInclude Include="common.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\数据结构\四叉树.cpp" />
     <ClCompile Include="array.cpp" />
     <ClCompile Include="bintree.cpp" />
+    <ClCompile Include="find.cpp" />
     <ClCompile Include="Line_table.cpp" />
     <ClCompile Include="queue_stack.cpp" />
+    <ClCompile Include="sort.cpp" />
+    <ClCompile Include="string.cpp" />
     <ClCompile Include="平差测量.cpp" />
     <ClCompile Include="遥感算法.cpp" />
   </ItemGroup>

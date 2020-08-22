@@ -1,5 +1,5 @@
 #include"common.h"
-
+/*
 typedef struct node    
 {
 	char data;
@@ -14,7 +14,7 @@ BTNode *create(char *str, int n)    // 创建代数表达式对应的二叉树
 	char ch;
 	int j = 0;
 	ch = str[j];
-	while (ch != '/0' && j < n)
+	while (ch != '\0' && j < n)
 	{
 		switch (ch)
 		{
@@ -98,10 +98,11 @@ int main()
 	printf("请输入符合要求的代数表达式：");
 	scanf("%s", str);
 	int n = 0, i = 0;
-	int n = strlen();
+	n = strlen(str);
 	b = create(str, n);
-	printf("该表达式的值为：%d/n", result(b));
+	printf("该表达式的值为：%d\n", result(b));
 
 	system("pause");
 	return 0;
 }
+*/
