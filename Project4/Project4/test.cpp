@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<Windows.h>
+#include<iostream>
 /*
 int fun(int p[5][5])
 {
@@ -43,17 +44,25 @@ int peaches(int m, int n)
 	}
 	return res;
 }
-
-*/
 #include<iostream>
 using namespace std;
-
 
 int main()
 {
 	int a[3][3] = { {3,5},{8,9},{12,35} };
 	int *q = a[0];
 	cout << q[4] << endl;
+	system("pause");
+	return 0;
+}
+*/
+
+using namespace std;
+
+int main()
+{
+	
+
 	system("pause");
 	return 0;
 }
