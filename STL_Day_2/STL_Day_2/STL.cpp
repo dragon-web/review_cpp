@@ -3,6 +3,8 @@
 #include<iostream>
 
 using namespace std;
+
+/*
 struct st_t {
 	int status;
 	short *pdata;
@@ -17,3 +19,5 @@ int main()
 	system("pause");
 	return 0;
 }
+*/
+
