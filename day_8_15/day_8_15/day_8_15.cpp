@@ -406,4 +406,23 @@ void f(double x) {
 }
 */
 
+void incre();
+int x = 3;
 
+void incre()
+{
+	static int x = 1;
+	x *= x + 1;
+		printf("%d", x);
+}
+
+int main()
+{
+
+	
+	int i;
+	for (i = 1; i < x; i++) incre();
+
+	system("pause");
+	return 0;
+}
