@@ -1,7 +1,7 @@
 #pragma once
 #include"common.h"
 
-typedef struct Node
+typedef struct Node  //树节点
 {
 	int data;
 	struct Node *left;
@@ -12,7 +12,7 @@ typedef struct
 {
 	NodeList* Elem[MAX_QUEUE_SIZE];
 	int       Front, Rear;
-}SeqBiTreePtrQueue;
+}SeqBiTreePtrQueue;  //队列节点
 
 
 

@@ -1,9 +1,9 @@
 #include"BinTree.h"
 
-int i = 0;
+int i = 0;  //全局变量  （递归创建）
 NodeList *createBinaryTree(int *arr)  //用0来记录NULL
 {
-	if (arr[i] == 0)
+	if (arr[i] == 0)  //递归出口
 	{
 		return NULL;
 	}
@@ -13,7 +13,7 @@ NodeList *createBinaryTree(int *arr)  //用0来记录NULL
 		assert(p != NULL); //判断p是否为NULL
 		p->data = arr[i];
 		i++;
-		p->left = createBinaryTree(arr);
+		p->left = createBinaryTree(arr);  //递归调用
 		i++;
 		p->right = createBinaryTree(arr);
 		return p;
