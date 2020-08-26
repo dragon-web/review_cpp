@@ -1,10 +1,10 @@
 #include"BinTree.h"
 
-
 int main()
 {
 	//int arr[] = { 1,3,5,0,0,6,0,0,2,4,0,0,6,0,0};   //我们用0来表示NULL
-	int arr[] = {1,5,7,0,0,96,0,0,2,4,0,0,8,0,0};   //我们用0来表示NULL
+	//int arr[] = {1,5,7,0,0,96,0,0,2,4,0,0,8,0,0};   //我们用0来表示NULL
+	int arr[] = { 1,2,0,0,3,0,0 };
 	NodeList* q = createBinaryTree(arr);
 	printf("前序遍历为:\n");
 	DLR(q);
