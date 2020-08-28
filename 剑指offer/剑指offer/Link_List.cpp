@@ -71,19 +71,55 @@ ListNode* FindKthToTail(ListNode* pListHead, unsigned int k) {
 	return q;
 }
 
+vector<int> printListFromTailToHead(ListNode* head) {
+	vector<int> dp;
+	ListNode *p = head;
+	while (p != NULL)
+	{
+		dp.push_back(p->val);
+		p = p->next;
+	}
+	return dp;
+}
+
 
 int main()
 {
 
-	/*ListNode p1(1);
-	ListNode p2(2);
-	ListNode p3(3);
-	ListNode p4(4);
+	ListNode p1(67);
+	ListNode p2(0);
+	ListNode p3(24);
+	ListNode p4(58);
 	p1.next = &p2;
 	p2.next = &p3;
 	p3.next = &p4;
 	p4.next = NULL;
-	auto temp = ReverseList(&p1);
+	vector<int> p = printListFromTailToHead(&p1);
+	std::reverse(p.begin(), p.end());
+	for (auto &e : p)
+	{
+		cout << e << " ";
+	}
+
+	system("pause");
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*auto temp = ReverseList(&p1);
 	vector<vector<int>> dp(3);
 	cout << typeid(dp).name() << endl;
 	
@@ -95,7 +131,7 @@ int main()
 			cout << dp[i][j] << " ";
 		}
 		cout << endl;
-	}*/
+	}
 	char str[] = { 'w','e',' ','t','\0' };
 	int sz = strlen(str);
 	char* p = replaceSpace(str, sz);
@@ -104,5 +140,7 @@ int main()
 	system("pause");
 	return 0;
 }
+
+*/
 
 
