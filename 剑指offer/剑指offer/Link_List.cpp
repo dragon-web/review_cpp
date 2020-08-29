@@ -143,4 +143,28 @@ int main()
 
 */
 
+class Solution
+{
+public:
+    void push(int node) {
+        stack1.push(node);
+    }
+    void copy (stack<int> &a,stack<int> &b) { //引用自定义函数
+        while (a.size()) { //弹出元素
+            b.push(a.top()); //a顶部的元素插入b的尾部
+            a.pop();
+        }
+    }
+    int pop() {
+        copy(stack1,stack2);
+        int res = stack2.top();
+        stack2.pop();
+        copy(stack2,stack1);
+        return res;
+    }
+private:
+    stack<int> stack1;
+    stack<int> stack2;
+};
+
 
