@@ -59,6 +59,7 @@ namespace matrix
 
 namespace tables
 {
+
 	template<class W>
 	struct EdgeNode
 	{
@@ -72,6 +73,7 @@ namespace tables
 	template<class V, class W, bool Direction = false>
 	class Graph
 	{
+	public:
 		Graph(V *vertexs, int n)
 		{
 			_vertes.reserve(n);
@@ -82,6 +84,8 @@ namespace tables
 			}
 			_LinkTable.resize(n, nullptr);
 		}
+		public:
+
 		int GetVertexIndex(const V &v)
 		{
 			auto it = _vertexIndexMap.find(v);
@@ -121,7 +125,7 @@ namespace tables
 		void TestGraph()
 		{
 			string strs[] = { "保罗","詹姆斯","韦德","加内特","科比","库里" };
-			Graph<string, int> g(strs,sizeof(strs)/sizeof(string);
+			Graph<string, int> g(strs,sizeof(strs)/sizeof(string));
 			g.AddEdge("保罗", "詹姆斯",95);
 			g.AddEdge("韦德", "詹姆斯", 97);
 			g.AddEdge("库里", "詹姆斯", 92);
