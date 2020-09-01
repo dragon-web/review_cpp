@@ -1,5 +1,5 @@
 #pragma once
-#include"common.h"
+#include"graph.h"
 //生成树是个极小联通子图
 /*
 MST性质
@@ -8,4 +8,10 @@ MST性质
 */
 //prim 从一个点出发，依次加入点形成点集
 //从边出发，将点集合并，避免形成环Kruskal
+
+//在prim算法中采用临接矩阵的思路存储
+
+
+
+
 

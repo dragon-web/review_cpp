@@ -7,8 +7,9 @@ using namespace std;
 char arr[] = { 'A','B','C','D','E' };
 struct ArcNode  //边表
 {
-	int adjvex;     //表示边的权值
+	int adjvex;     //记录下一个顶点标号
 	ArcNode *next;
+	unsigned int  weight;//记录权值
 };
 
 struct VertexNode  //顶点表
@@ -44,12 +45,14 @@ ALGraph::ALGraph(DataType v[], int n, int e)
 	{
 		int vi;
 		int vj;
-		cout << "请输入两个相连顶点编号:(中间以空格隔开)" << endl;
-		cin >> vi >> vj;
+		unsigned int WEIGHT;
+		cout << "请输入两个相连顶点编号以及两点的路径:(中间以空格隔开)" << endl;
+		cin >> vi >> vj>>WEIGHT;
 		ArcNode * s;
 		s = new ArcNode;
 		s->adjvex = vj;  //存储终点
 		s->next = adjust[vi].firstEdge;
+		s->weight = WEIGHT;
 		adjust[vi].firstEdge = s;
 	}
 }
@@ -71,14 +74,4 @@ void ALGraph::printTable(VertexNode *p, int n, int e)
 	}
 }
 
-/*
-int main()
-{
-	ALGraph myalgraph(arr,5,7);
-	myalgraph.printTable(myalgraph.GetVerTexNode(), 5, 7);
 
-
-	system("pause");
-	return 0;
-}
-*/

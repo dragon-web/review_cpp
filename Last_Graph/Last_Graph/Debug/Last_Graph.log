@@ -1,4 +1,2 @@
 ﻿  main.cpp
-c:\users\飞龙\desktop\review_cpp\last_graph\last_graph\main.cpp(7): error C2678: 二进制“>>”: 没有找到接受“std::basic_ostream<char,std::char_traits<char>>”类型的左操作数的运算符(或没有可接受的转换)
-  c:\users\飞龙\desktop\review_cpp\last_graph\last_graph\main.cpp(7): note: 可能是“内置 C++ operator>>(bool, int)”
-  c:\users\飞龙\desktop\review_cpp\last_graph\last_graph\main.cpp(7): note: 尝试匹配参数列表“(std::basic_ostream<char,std::char_traits<char>>, int)”时
+  Last_Graph.vcxproj -> C:\Users\飞龙\Desktop\review_cpp\Last_Graph\Debug\Last_Graph.exe
