@@ -1,0 +1,4 @@
+﻿  BST.cpp
+c:\users\飞龙\desktop\review_cpp\bst\bst\bst.cpp(168): warning C4101: “temp2”: 未引用的局部变量
+c:\users\飞龙\desktop\review_cpp\bst\bst\bst.cpp(168): warning C4101: “temp1”: 未引用的局部变量
+  BST.vcxproj -> C:\Users\飞龙\Desktop\review_cpp\BST\Debug\BST.exe
