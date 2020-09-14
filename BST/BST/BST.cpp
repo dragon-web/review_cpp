@@ -10,16 +10,6 @@ struct BiNode
 	DataType data;
 	BiNode* lchild, *rchild;
 };
-/*
-BiNode* root;
-void createBST(DataType array[], int arrarLength);
-void InsertBST(BiNode* &bt, DataType key);
-void release(BiNode* bt);  //二叉排序树的销毁操作
-void InOrder(BiNode* bt);  
-bool deleteBST(BiNode *&bt, DataType key);
-void deleteNode(BiNode* &bt);
-BiNode *searchBST(BiNode* bt, DataType key);
-*/
 
 class BiSortTree {
 private:
