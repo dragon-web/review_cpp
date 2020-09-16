@@ -44,7 +44,6 @@ public:
 		return res;
 	}
 };
-*/
 
   struct TreeNode {
       int val;
@@ -97,6 +96,62 @@ public:
 		  return res;
 	  }
   };
+
+
+  */
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
+
+class Solution {
+public:
+	int Size(TreeNode *root)
+	{
+		if (root == NULL)
+			return 0;
+		return Size(root->left) + Size(root->right) + 1;
+	}
+	TreeNode* GoToLeft(TreeNode* p)
+	{
+		TreeNode* temp = p;
+		while (temp != NULL)
+		{
+			temp = temp->left;
+		}
+		return temp;
+	}
+
+	vector<int> inorderTraversal(TreeNode* root) {
+		int N = Size(root);
+		vector<int> res(N);
+		stack<TreeNode*> dp;
+		TreeNode* temp1 = GoToLeft(root);
+		dp.push(temp1);
+		while (temp1)
+		{
+			dp.push(temp1);
+			if (temp1->right)
+			{
+				temp1 = GoToLeft()
+			}
+		}
+
+
+
+
+	}
+};
+
+
+
+
+
+
 
 
   int main()
