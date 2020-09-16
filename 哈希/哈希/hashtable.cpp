@@ -1,14 +1,12 @@
-#define _CRT_SECURE_NO_WARNINGS 
+#include"hastable.h"
 
-#include<iostream>
 
-using namespace std;
 
-/*
+
+
 int main()
 {
 
-
 	system("pause");
 	return 0;
-}*/
+}

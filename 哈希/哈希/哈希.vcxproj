@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9532EA13-088A-4D38-AF2D-84F451CA379F}</ProjectGuid>
+    <ProjectGuid>{342C5EB9-0569-4AD4-9EBB-6DD55174F16A}</ProjectGuid>
     <RootNamespace>哈希</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -115,10 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="common.h" />
+    <ClInclude Include="hastable.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="hashtable.cpp" />
-    <ClCompile Include="homework.cpp" />
-    <ClCompile Include="leetcode.cpp" />
-    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

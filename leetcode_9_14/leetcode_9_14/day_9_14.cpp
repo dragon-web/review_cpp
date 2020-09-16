@@ -1,10 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include<iostream>
 #include<vector>
-
+#include<stdlib.h>
+#include<math.h>
 using namespace std;
 
-
+/*
 class Solution {
 public:
 	int minNumberInRotateArray(vector<int> rotateArray) {
@@ -29,3 +30,44 @@ public:
 		return rotateArray[first];
 	}
 };
+*/
+
+class Solution {
+public:
+	vector<int> FindNumbersWithSum(vector<int> array, int sum) {
+		vector<int> res(0);
+		int mul = array[0] *array[0];
+		if (array.size())
+		{
+			for (int i = 0; i < array.size(); ++i)
+			{
+				for (int j = 0; j < array.size(); ++j)
+				{
+					if (i != j && array[i] + array[j] == sum)
+					{
+						if (array[i] * array[j] < mul)
+						{
+							mul = array[i] * array[j];
+							res.resize(2);
+							res[0] = array[i] > array[j] ? array[j] : array[i];
+							res[1] = array[i] < array[j] ? array[j] : array[i];
+						}
+					}
+				}
+			}
+			if (res.size() == 2)
+				return res;
+		}
+		return res;
+	}
+};
+
+int main()
+{
+	vector<int>dp = { 1,2,4,7,11,15 };
+	int sz = 15;
+	Solution a;
+	a.FindNumbersWithSum(dp, sz);
+	system("pause");
+	return 0;
+}
