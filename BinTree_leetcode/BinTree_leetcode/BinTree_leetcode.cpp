@@ -98,7 +98,7 @@ public:
   };
 
 
-  */
+  
 struct TreeNode {
 	int val;
 	TreeNode *left;
@@ -148,11 +148,65 @@ public:
 };
 
 
+class Solution {   //这个版本写的太失败了
+public:
+	vector<int> postorderTraversal(TreeNode* root) {
+		stack<TreeNode* >S;
+		vector<int> res;
+		TreeNode* p = root;
+		while (res.size() || p != NULL)
+		{
+			while (p != NULL)
+			{
+				S.push(p);
+				p = p->left;
+			}
+			p = S.top();
+			res.push_back(p->val);
+			p = p->right;
+		}
+		return res;
+	}
+};
+//如果老老实实将这个按照顺序打印出来的话
+*/
 
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
+class Solution {
+public:
+	vector<int> postorderTraversal(TreeNode* root) {
+		vector<int> result;
+		stack<TreeNode*> st;
+		if (root != NULL) st.push(root);
+		while (!st.empty()) {
+			TreeNode* node = st.top();
+			if (node != NULL) {
+				st.pop();
+				st.push(node);                          // 中
+				st.push(NULL);
 
+				if (node->right) st.push(node->right);  // 右
+				if (node->left) st.push(node->left);    // 左
 
-
+			}
+			else {
+				st.pop();
+				node = st.top();
+				st.pop();
+				result.push_back(node->val);
+			}
+		}
+		return result;
+	}
+};
 
   int main()
   {
@@ -164,7 +218,7 @@ public:
 	  a1.left = &a2;
 	  a2.left = &a4;
 	  a1.right = &a3;
-	  vector<int> res = a.inorderTraversal(&a1);
+	  a.postorderTraversal(&a1);
 	  system("pause");
 	  return 0;
   }
