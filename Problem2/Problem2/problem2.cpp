@@ -67,6 +67,7 @@ bool _delete(node_t *head, int X) {
 				if (q->val == X)
 				{
 					p->next = q->next;
+					q->prev = NULL;
 					free(q);
 					return true;
 				}
@@ -112,6 +113,7 @@ bool insert(node_t *head, int X) {
 	if (head->next == NULL)
 	{
 		head->next = temp;
+		temp->prev = head;
 		return true;
 	}
 	while (p->next != NULL)
@@ -119,5 +121,6 @@ bool insert(node_t *head, int X) {
 		p = p->next;
 	}
 	p->next = temp;
+	temp->prev = p;
 	return true;
 }
