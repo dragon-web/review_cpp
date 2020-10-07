@@ -39,7 +39,6 @@ int main()
 	system("pause");
 	return 0;
 }
-*/
 
 
 int main()
@@ -58,6 +57,36 @@ int main()
 	//mp.insert(make_pair<string, string>(key, value));
 	mp.insert({key,value});
 	cout << mp.size() << endl;
+	system("pause");
+	return 0;
+}
+
+
+
+int main()
+{
+	string str = "1234adskjasn";
+	stringstream ss(str);
+	int len = 0;
+	ss >> len;
+	cout << len << endl;
+	system("pause");
+	return 0;
+}
+
+*/
+
+//同样整型转字符串 
+
+int main()
+{
+	int len = 1234;
+	stringstream ss;
+	ss << len;
+	string str = ss.str();
+
+
+	cout << len << endl;
 	system("pause");
 	return 0;
 }
