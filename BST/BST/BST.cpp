@@ -142,7 +142,7 @@ void BiSortTree::deleteNode(BiNode* &bt)
 		bt->data = pre->data;
 		if (parent != bt)  //判断是否只有一层
 		{
-			parent->lchild = pre->lchild;
+			parent->rchild = pre->lchild;
 		}
 		else
 		{
