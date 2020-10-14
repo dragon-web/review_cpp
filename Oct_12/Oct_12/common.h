@@ -32,3 +32,9 @@ void deleteNode(BinarySearchTreeNode* bt);
 
 void makeEmptyNode(BinarySearchTreeNode **Tree);
 void pererror_function(int error_core);
+
+void inorderWalk(BinarySearchTreeNode *Tree);
+void preorderWalk(BinarySearchTreeNode *Tree);
+void postorderWalk(BinarySearchTreeNode *Tree);
+
+

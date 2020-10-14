@@ -240,6 +240,34 @@ void makeEmptyNode(BinarySearchTreeNode **Tree) {
 	*Tree = NULL;
 }
 
+void inorderWalk(BinarySearchTreeNode *Tree)
+{
+	if (Tree->left != NULL)
+		inorderWalk(Tree->left);
+	printf("%d ", Tree->value);
+	if (Tree->right != NULL)
+		inorderWalk(Tree->right);
+}
+void preorderWalk(BinarySearchTreeNode *Tree)
+{
+	printf("%d ", Tree->value);
+	if (Tree->left != NULL)
+		preorderWalk(Tree->left);
+	if (Tree->right != NULL)
+		preorderWalk(Tree->right);
+}
+void postorderWalk(BinarySearchTreeNode *Tree)
+{
+	if (Tree->left != NULL)
+		postorderWalk(Tree->left);
+	if (Tree->right != NULL)
+		postorderWalk(Tree->right);
+	printf("%d ", Tree->value);
+}
+
+
+
+/*
 int main() {
 
 	BinarySearchTreeNode *root = NULL;
@@ -288,6 +316,35 @@ int main() {
 	if (node != NULL)
 		printf("%d \n", node->value);
 
+	system("pause");
+	return 0;
+}
+*/
+
+
+int main() {
+	BinarySearchTreeNode *root = NULL;
+	insert(&root, 10);
+	insert(&root, 20);
+	insert(&root, 5);
+	insert(&root, 1);
+	insert(&root, 15);
+	insert(&root, 21);
+	insert(&root, 30);
+	insert(&root, 100);
+	insert(&root, 40);
+	insert(&root, 50);
+	printf("in-order walk:\t\t");
+	inorderWalk(root);
+	printf("\n");
+
+	printf("pre-order walk:\t\t");
+	preorderWalk(root);
+	printf("\n");
+
+	printf("post-order walk:\t");
+	postorderWalk(root);
+	printf("\n");
 	system("pause");
 	return 0;
 }
