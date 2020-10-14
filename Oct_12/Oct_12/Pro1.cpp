@@ -70,9 +70,6 @@ BinarySearchTreeNode *insert(BinarySearchTreeNode **Tree, int X ) {
 	
 	return *Tree;
 }
-
-
-/*
 BinarySearchTreeNode *searchNode(BinarySearchTreeNode *Tree, int X) {
 	if (Tree == NULL)
 	{
@@ -99,13 +96,11 @@ BinarySearchTreeNode *findMaxNode(BinarySearchTreeNode *Tree) {
 	else
 	{
 		BinarySearchTreeNode *p = Tree;
-		BinarySearchTreeNode *temp;
-		while (p != NULL)
+		while (p->right != NULL)
 		{
-			temp = p;
 			p = p->right;
 		}
-		return temp;
+		return p;
 	}
 }
 
@@ -119,59 +114,62 @@ BinarySearchTreeNode *findMinNode(BinarySearchTreeNode *Tree) {
 	else
 	{
 		BinarySearchTreeNode *p = Tree;
-		BinarySearchTreeNode *temp;
-		while (p != NULL)
+		while (p->left != NULL)
 		{
-			temp = p;
 			p = p->left;
 		}
-		return temp;
+		return p;
 	}
 }
 
-void deleteNode(BinarySearchTreeNode* &bt)
+void deleteNode(BinarySearchTreeNode* bt)
 {
-	BinarySearchTreeNode *p, *parent, *pre;
-	if (bt->left == NULL && bt->right == NULL) //叶子节点
+	BinarySearchTreeNode *p;
+	if (bt->left == NULL && bt->right == NULL) //Leaf node
 	{
 		p = bt;
-		bt = NULL; //预防野指针
+		if (p->parent->left == p)
+		{
+			p->parent->left = NULL;
+		}
+		else
+		{
+			p->parent->right = NULL;
+		}
 		free(p);
 	}
-	else if (bt->right == NULL)
+	else if (bt->right == NULL)  // Only left 
 	{
 		p = bt;
 		bt = bt->left;
+		p->parent->left = bt;
 		free(p);
+		p = NULL;
 	}
 	else if (bt->left == NULL)
 	{
 		p = bt;
 		bt = bt->right;
+		p->parent->right = bt;
 		free(p);
+		p = NULL;
 	}
-	else   //左右子树均不为空
+	else   //左右子树均不为空  ,找到左树中最大的或者右树中最小的替换
 	{
-		parent = bt;
-		pre = bt->left;
-		while (pre->right) //转左，然后向右到尽头（找到右子树中最大节点）
+		p = bt;
+		bt = bt->right;
+		while (bt->left != NULL)  //此刻已经找到了右树中最小值 bt
 		{
-			parent = pre;
-			pre = pre->right;
+			bt = bt->left;
 		}
-		bt->value = pre->value;
-		if (parent != bt)  //判断是否只有一层
-		{
-			parent->right = pre->left;
-		}
-		else
-		{
-			parent->left = pre->left;
-		}
-		 free(pre);
+		p->value = bt->value;
+		bt->parent->left = bt->right;
+		free(bt);
+		bt = NULL;
 	}
 }
-BinarySearchTreeNode *deleteBST(BinarySearchTreeNode *Tree, int X) {
+bool deleteBST(BinarySearchTreeNode *Tree, int X) {
+	BinarySearchTreeNode *p = Tree;
 	if (Tree == NULL)
 	{
 		pererror_function(DeleteError);
@@ -185,39 +183,62 @@ BinarySearchTreeNode *deleteBST(BinarySearchTreeNode *Tree, int X) {
 		}
 		else if (X < Tree->value)
 		{
-			return deleteBST(Tree->right,X);
+			return deleteBST(Tree->left,X);
 		}
 		else
 		{
 			return deleteBST(Tree->right,X);
 		}
-		return ;
+		return true;
 	}
 }
 
 
 
 BinarySearchTreeNode *findSuccessorNode(BinarySearchTreeNode *Tree, int X) {
-	//Write your own code below
-}
-
-
-BinarySearchTreeNode *findPredecessorNode(BinarySearchTreeNode *Tree, int X) {
-	//Write your own code below
-}
-
-void makeEmptyNode(BinarySearchTreeNode *Tree) {
-	if (Tree == NULL)
-		return;
+	BinarySearchTreeNode *res = searchNode(Tree, X);
+	if (res == NULL)
+	{
+		pererror_function(SearchSuccessorError);
+		return NULL;
+	}
 	else
 	{
-		makeEmptyNode(Tree->left);
-		makeEmptyNode(Tree->right);
-		free(Tree);
+		if (res->left != NULL)
+		{
+			return res->left;
+		}
+		if (res->right != NULL)
+		{
+			return res->right;
+		}
+		pererror_function(SearchSuccessorError);
+		return NULL;
 	}
 }
 
-*/
+BinarySearchTreeNode *findPredecessorNode(BinarySearchTreeNode *Tree, int X) {
+	BinarySearchTreeNode *res = searchNode(Tree, X);
+	if (res == NULL)
+	{
+		pererror_function(searchPredecessorError);
+		return NULL;
+	}
+	else
+	{
+		return res->parent;
+	}
+}
+void makeEmptyNode(BinarySearchTreeNode **Tree) {
+	if (*Tree == NULL)
+	{
+		return;
+	}
+	makeEmptyNode(&(*Tree)->left);
+	makeEmptyNode(&(*Tree)->right);
+	free(*Tree);
+	*Tree = NULL;
+}
 
 int main() {
 
@@ -235,7 +256,7 @@ int main() {
 	insert(&root, 50);
 
 
-	/*node = searchNode(root, 1);
+	BinarySearchTreeNode *node = searchNode(root, 1);
 	if (node != NULL)
 		printf("%d \n", node->value);
 
@@ -261,10 +282,12 @@ int main() {
 
 	deleteBST(root, 15);
 
-	makeEmptyNode(root);
+	makeEmptyNode(&root);
 
 	node = searchNode(root, 10);
 	if (node != NULL)
 		printf("%d \n", node->value);
-	*/
+
+	system("pause");
+	return 0;
 }

@@ -27,8 +27,8 @@ BinarySearchTreeNode *findMinNode(BinarySearchTreeNode *Tree);
 
 BinarySearchTreeNode *findSuccessorNode(BinarySearchTreeNode *Tree, int X);
 BinarySearchTreeNode *findPredecessorNode(BinarySearchTreeNode *Tree, int X);
-BinarySearchTreeNode *deleteBST(BinarySearchTreeNode *Tree, int X);
-void deleteNode(BinarySearchTreeNode* &bt);
+bool deleteBST(BinarySearchTreeNode *Tree, int X);
+void deleteNode(BinarySearchTreeNode* bt);
 
-void makeEmptyNode(BinarySearchTreeNode *Tree);
+void makeEmptyNode(BinarySearchTreeNode **Tree);
 void pererror_function(int error_core);
