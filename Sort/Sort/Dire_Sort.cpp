@@ -3,7 +3,7 @@
 #include<iostream>
 #include<time.h>
 using namespace std;
-
+/*
 template<class T>
 void InsertSort(T* array, int n) {               
 	int i, j;                                    
@@ -43,6 +43,8 @@ void Shell_Sort(T *array, int n ,int d)
 
 }
 
+
+
 int main()
 {
 	int arr[10] = { 1 ,7 ,4, 0 ,9 ,4 ,8 ,8 ,2 ,4 };
@@ -57,6 +59,68 @@ int main()
 		cout << e << " ";
 	}
 	cout << endl;
+	system("pause");
+	return 0;
+}
+
+
+int  Binary_Search(int arr[], int k, int left, int right)
+{
+	int mid = left + (right - left) / 2;
+	while (left <= right)
+	{
+		if (arr[mid] > k)
+		{
+			right = mid - 1;
+		}
+		else if (arr[mid] < k)
+		{
+			left = left - 1;
+		}
+		else  if (arr[mid] == k)
+		{
+			return mid;
+		}
+	}
+	return -1;
+}
+*/
+
+int  Binary_Search(int arr[], int k, int left, int right)
+{
+	int mid = 0;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (arr[mid] == k)
+		{
+			return mid;
+		}
+		else if (arr[mid] > k)
+		{
+			right = mid;
+			continue;
+		}
+		else if (arr[mid] < k)
+		{
+			left = k;
+			continue;
+		}
+	}
+	return -1;
+}
+
+int main()
+{
+	int arr[10] = { 1 ,7 ,4, 0 ,9 ,4 ,8 ,8 ,2 ,4 };
+	for (auto &e : arr)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+	int res = Binary_Search(arr, 9, 0,9);
+
+	cout <<res<< endl;
 	system("pause");
 	return 0;
 }
