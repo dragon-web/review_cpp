@@ -1,9 +1,0 @@
-﻿  DataManager.cpp
-  DocFastSearchTool.cpp
-  ScanManager.cpp
-  Sysframe.cpp
-c:\users\飞龙\desktop\pro\docfastsearchtool\docfastsearchtool\sysframe.cpp(67): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-  Sysutil.cpp
-c:\users\飞龙\desktop\pro\docfastsearchtool\docfastsearchtool\sysutil.cpp(157): warning C4018: “<”: 有符号/无符号不匹配
-  正在生成代码...
-  DocFastSearchTool.vcxproj -> C:\Users\飞龙\Desktop\Pro\DocFastSearchTool\Debug\DocFastSearchTool.exe
