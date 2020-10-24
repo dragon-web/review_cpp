@@ -1,10 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS 
 
-/*
+
 #include<iostream>
 #include<time.h>
 using namespace std;
-
+/*
 template<class T>
 void InsertSort(T* array, int n) {               
 	int i, j;                                    
@@ -170,7 +170,7 @@ int main()
 	Heap_Sort();
 	system("pause");
 	return 0;
-}*/
+}
 
 
 
@@ -220,6 +220,24 @@ int main()
 	{
 		cout << arr[i] << endl;
 	}
+	system("pause");
+	return 0;
+}
+*/
+
+//归并排序
+//基本思想，将两个或者两个以上的有序序列归并成一个有序序列
+//内部排序中用的比较多的通常采用二路归并排序，将位置相邻的两个有序子序列归并成一个
+//难点是如何将两个有序的子序列合并成一个有序子序列
+
+
+
+
+
+int main()
+{
+	int arr[] = { 8, 1, 14, 3, 21, 5, 7, 10 , 8 , 7 };
+
 	system("pause");
 	return 0;
 }
