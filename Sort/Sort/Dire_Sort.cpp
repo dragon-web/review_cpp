@@ -229,9 +229,37 @@ int main()
 //基本思想，将两个或者两个以上的有序序列归并成一个有序序列
 //内部排序中用的比较多的通常采用二路归并排序，将位置相邻的两个有序子序列归并成一个
 //难点是如何将两个有序的子序列合并成一个有序子序列
+//分治法的典型应用
+//
 
-
-
+template<typename T> // 整數或浮點數皆可使用,若要使用物件(class)時必須設定"小於"(<)的運算子功能
+void merge_sort(T arr[], int len) {
+	T *a = arr;
+	T *b = new T[len];
+	for (int seg = 1; seg < len; seg += seg) {
+		for (int start = 0; start < len; start += seg + seg) {
+			int low = start, mid = min(start + seg, len), high = min(start + seg + seg, len);
+			int k = low;
+			int start1 = low, end1 = mid;
+			int start2 = mid, end2 = high;
+			while (start1 < end1 && start2 < end2)
+				b[k++] = a[start1] < a[start2] ? a[start1++] : a[start2++];
+			while (start1 < end1)
+				b[k++] = a[start1++];
+			while (start2 < end2)
+				b[k++] = a[start2++];
+		}
+		T *temp = a;
+		a = b;
+		b = temp;
+	}
+	if (a != arr) {
+		for (int i = 0; i < len; i++)
+			b[i] = a[i];
+		b = a;
+	}
+	delete[] b;
+}
 
 
 int main()
