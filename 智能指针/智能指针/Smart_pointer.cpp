@@ -2,6 +2,8 @@
 #define  MAX(x,y)  (x)>(y)?(x):(y)
 
 #include<iostream>
+#include<string>
+#include<vector>
 
 using namespace std;
 /*
@@ -200,4 +202,41 @@ int main()
 	system("pause");
 	return 0;
 }
+	shared_ptr<string> pTom{ new string("Tom") }; // 两次拷贝
+	shared_ptr<string>pTom1;  //两次拷贝
+	pTom1.reset(new string("tom"));
+	shared_ptr<string> pTom2 = make_shared<string>("tom"); //一次拷贝
+
 */
+
+int main()
+{
+	shared_ptr<string> pTom = make_shared<string>("tom");
+	shared_ptr<string> pJerry = make_shared<string>("Jerry");
+
+	(*pTom)[0] = 'T';
+	pJerry->replace(0, 1 , "i");
+	/*cout << *pTom << endl;
+	cout << *pJerry << endl;
+	
+	vector<shared_ptr<string>> vtWhoCleanRoom;
+	vtWhoCleanRoom.push_back(pTom);
+	vtWhoCleanRoom.push_back(pJerry);
+	vtWhoCleanRoom.push_back(pTom);
+	*pTom = "Tomy";
+	for (auto &e : vtWhoCleanRoom)
+	{
+		cout << *e << endl;
+	}*/ 
+	shared_ptr<int> sp_n1 = make_shared<int>(1);
+	shared_ptr<int> sp_n2 = make_shared<int>(2);
+
+	shared_ptr<int> sp_nu;
+	shared_ptr<double> sp_d1 = make_shared<double>(1);
+	shared_ptr<void> sp(new int(1)); // 可以进行强制转换
+	cout << sp << endl;
+
+
+	system("pause");
+	return 0;
+}

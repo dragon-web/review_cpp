@@ -52,7 +52,6 @@ int main()
 	system("pause");
 	return 0;
 }
-*/
 
 using namespace std;
 class Base
@@ -77,7 +76,7 @@ int main()
 	{
 		cout << "unsafe reinterpret_cast" << endl;
 	}
-	a1 = dynamic_cast<A*>(&b);
+ 	a1 = dynamic_cast<A*>(&b);
 	if (a1 == NULL)//不检查安全性
 	{
 		cout << "unsafe dynamic_cast" << endl;
@@ -85,3 +84,5 @@ int main()
 	system("pause");
 	return 0;
 }
+*/
+
