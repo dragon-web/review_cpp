@@ -58,7 +58,7 @@ public:
 		res.clear();
 		int row = matrix.size();  //ÐÐ
 		int cloum = matrix[0].size();  //ÁÐ 
-		int c = ((row < cloum ? row : cloum) - 1) / 2 + 1;
+		int c = ((row < cloum ? row : cloum) - 1) / 2 + 1;  //È¦Êý
 		for (int i = 0; i < c; i++) {
 			for (int j = i; j < cloum - i; j++) {
 				res.push_back(matrix[i][j]);
