@@ -231,7 +231,7 @@ int main()
 //难点是如何将两个有序的子序列合并成一个有序子序列
 //分治法的典型应用
 //
-
+/*
 template<typename T> // 整數或浮點數皆可使用,若要使用物件(class)時必須設定"小於"(<)的運算子功能
 void merge_sort(T arr[], int len) {
 	T *a = arr;
@@ -269,3 +269,5 @@ int main()
 	system("pause");
 	return 0;
 }
+
+*/
