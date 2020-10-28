@@ -19,50 +19,9 @@ void InsertSort(T* array, int n) {
 		array[j] = temp;                         
 	}
 }
-template<typename T>
-void Swap(T *a, T * b)
-{
-	T temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-template<class T>
-void Shell_Sort(T *array, int n ,int d)
-{
-	int i, j;
-	T temp;
-	for (d = n/2; d >= 1; d/=2) {
-		j = i - d;
-		temp = array[i];
-		while (j > 0 && temp < array[j]) {
-			array[j] = array[j + d];
-			j -= d;
-		}
-		array[j + d ] = temp;
-	}
-
-}
-
-int main()
-{
-	int arr[10] = { 1 ,7 ,4, 0 ,9 ,4 ,8 ,8 ,2 ,4 };
-	for (auto &e : arr)
-	{
-		cout << e << " ";
-	}
-	cout << endl;
-	Shell_Sort(arr, 10,3);
-	for (auto &e : arr)
-	{
-		cout << e << " ";
-	}
-	cout << endl;
-	system("pause");
-	return 0;
-}
 
 
+/*
 int  Binary_Search(int arr[], int k, int left, int right)
 {
 	int mid = left + (right - left) / 2;
@@ -263,7 +222,7 @@ void merge_sort(T arr[], int len) {
 
 
 int main()
-{
+{ 
 	int arr[] = { 8, 1, 14, 3, 21, 5, 7, 10 , 8 , 7 };
 
 	system("pause");
@@ -271,3 +230,48 @@ int main()
 }
 
 */
+
+
+template<typename T>
+void Swap(T *a, T * b)
+{
+	T temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+template<class T>
+void Shell_Sort(T *array, int n, int d)
+{
+	
+	int j;
+	T temp;
+	for (d = n / 2; d >= 1; d /= 2) {
+		int i = n / 2;
+		j =i - d;
+		temp = array[i];
+		while (j > 0 && temp < array[j]) {
+			array[j] = array[j + d];
+			j -= d;
+		}
+		array[j + d] = temp;
+	}
+}
+
+int main()
+{
+	int arr[10] = { 1 ,7 ,4, 0 ,9 ,4 ,8 ,8 ,2 ,4 };
+	for (auto &e : arr)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+	Shell_Sort(arr, 10, 3);
+	for (auto &e : arr)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}
