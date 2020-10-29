@@ -243,19 +243,8 @@ void Swap(T *a, T * b)
 template<class T>
 void Shell_Sort(T *array, int n, int d)
 {
+		
 	
-	int j;
-	T temp;
-	for (d = n / 2; d >= 1; d /= 2) {
-		int i = n / 2;
-		j =i - d;
-		temp = array[i];
-		while (j > 0 && temp < array[j]) {
-			array[j] = array[j + d];
-			j -= d;
-		}
-		array[j + d] = temp;
-	}
 }
 
 int main()
