@@ -3,6 +3,8 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<stack>
+#include<queue>
 
 using namespace std;
 /*
@@ -62,7 +64,7 @@ public:
 		return res;
 	}
 };
-*/
+
 
 class Solution {
 public:
@@ -87,6 +89,75 @@ public:
 	}
 };
 
+
+struct ListNode {
+	int val;
+ 	struct ListNode *next;
+  };
+ 
+
+class Solution {
+public:
+	ListNode* FindMin(ListNode* head)
+	{
+		ListNode*p = head;
+		ListNode* temp = p;
+		while (p != NULL)
+		{
+			if (temp->val > p->val)
+			{
+				temp = p;
+			}
+			p = p->next;
+		}
+		return temp;
+	}
+	ListNode* Dele(ListNode* tar, ListNode* head)
+	{
+		ListNode* Phead = head;
+		if (head == tar)
+		{
+			head = head->next;
+			delete tar;
+		}
+		else
+		{
+			while (Phead != NULL)
+			{
+				if (Phead->next == tar)
+				{
+					return Phead;
+				}
+				Phead = Phead->next;
+			}
+		}
+	}
+
+	ListNode* sortList(ListNode* head) {
+		if (head == NULL)
+		{
+			return head;
+		}
+		else {
+			ListNode* Head = new ListNode;
+			ListNode* tail = Head;
+			ListNode* p = head;
+			while (p != NULL)
+			{
+				ListNode* min = FindMin(head);
+				ListNode* temp = new ListNode;
+				temp->val = min->val;
+				temp->next = NULL;
+				tail->next = temp;
+				tail->next = NULL;
+				Dele(min, head);
+
+				p = p->next;
+			}
+
+		}
+	}
+};
 int main()
 {
 	
@@ -95,3 +166,51 @@ int main()
 }
 
 
+
+class Solution {
+public:
+	int longestWPI(vector<int>& hours) {
+		stack<int> temp;
+		stack<int> res;
+		vector<int>::iterator it = hours.begin();
+		while (it != hours.end())
+		{
+			if (*it > 8)
+			{
+				temp.push(*it);
+			}
+			it++;
+		}
+
+
+	}
+};*/
+
+class Solution {
+public:
+	bool threeConsecutiveOdds(vector<int>& arr) {
+		vector<int> dp;
+		auto it = arr.begin();
+		while (it != arr.end())
+		{
+			if (*it % 2 == 0)
+			{
+				dp.push_back(*it);
+				if (dp.size() >= 3)
+					return true;
+			}
+			else
+			{
+				dp.clear();
+			}
+			it++;
+		}
+		return false;
+	}
+};
+int main()
+{
+
+	system("pause");
+	return 0;
+}
