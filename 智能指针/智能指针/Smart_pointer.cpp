@@ -209,6 +209,9 @@ int main()
 
 */
 
+//智能指针简而言之就是
+//          利用对象生命周期来控制程序资源
+
 int main()
 {
 	shared_ptr<string> pTom = make_shared<string>("tom");
@@ -240,3 +243,6 @@ int main()
 	system("pause");
 	return 0;
 }
+
+
+
