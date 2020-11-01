@@ -68,7 +68,7 @@ public:
 		return ret;
 
 	}
-};*/
+};
 
 
 
@@ -185,6 +185,5 @@ int main()
 
 	system("pause");
 	return 0;
-}
-
-
+} 
+*/
