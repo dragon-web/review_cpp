@@ -229,7 +229,6 @@ int main()
 	return 0;
 }
 
-*/
 
 
 template<typename T>
@@ -247,6 +246,7 @@ void Shell_Sort(T *array, int n, int d)
 	
 }
 
+
 int main()
 {
 	int arr[10] = { 1 ,7 ,4, 0 ,9 ,4 ,8 ,8 ,2 ,4 };
@@ -260,7 +260,134 @@ int main()
 	{
 		cout << e << " ";
 	}
+
+	int *p = new int(2);
 	cout << endl;
 	system("pause");
 	return 0;
 }
+
+
+
+void Swap(int arr[], int &left, int &right)
+{
+	int temp = arr[left];
+	arr[left] = arr[right];
+	arr[right] = temp;
+}
+
+void heapify(int tree[], int n, int i)  // n 是多少个节点  i表示第几个节点
+{
+	if (i >= n)
+	{
+		return;
+	}
+	int c1 = 2 * i + 1;
+	int c2 = 2 * i + 2;
+	int max = i;
+	if (c1 < n && tree[c1] > tree[max])
+	{
+		max = c1;
+	}
+	if (c2 < n && tree[c2] > tree[max])
+	{
+		max = c2;
+	}
+	if (max != i)
+	{
+		Swap(tree, max, i);
+		heapify(tree, n, max);
+	}
+}
+
+void Heap_Sort()
+{
+	int tree[] = { 1 ,7 ,4, 0 ,9 ,4 ,8 ,8 ,2 ,4 };
+	int n = sizeof(tree) / sizeof(tree[0]);
+	heapify(tree, n, 0);
+	for (auto &e : tree)
+	{
+		cout << e << " ";
+	}
+}
+
+int main()
+{
+	Heap_Sort();
+	system("pause");
+	return 0;
+}
+
+
+/*
+void *__CRTDECL operator new(size_t size) _THROW1(_STD bad_alloc)
+{
+	// try to allocate size bytes
+	void *p;
+	while ((p = malloc(size)) == 0)
+		if (_callnewh(size) == 0)
+		{
+			// report no memory
+			// 如果申请内存失败了，这里会抛出bad_alloc 类型异常
+			static const std::bad_alloc nomem;
+			_RAISE(nomem);
+		}
+	return (p);
+}*/
+
+
+#include <iostream>
+using namespace std;
+template<typename T>
+void adjust(T* arr, int sign, int len) {
+	T temp = arr[sign];
+	//每一次循环都更新该父节点为根的完全二叉树最大堆
+	for (int i = sign * 2 + 1; i < len; i = i * 2 + 1) {
+		if (i + 1 < len && arr[i + 1] > arr[i])
+			i++;
+		//判断子节点 大于父节点 
+		if (arr[i] > temp) {
+			arr[sign] = arr[i];
+			sign = i;
+		}
+	}
+	arr[sign] = temp;
+}
+
+template<typename T>
+void swap(T* arr, int x, int y) {
+	T temp = arr[x];
+	arr[x] = arr[y];
+	arr[y] = temp;
+}
+template<typename T>
+void sort(T* arr, int length) {
+	//1.从所有非叶子节点 构建初始大顶堆
+	for (int i = length / 2 - 1; i >= 0; i--) {
+		adjust(arr, i, length);
+	}
+	//
+	for (int i = length - 1; i; i--) {
+		//2.交换最大堆 和 相对的最后一个元素
+		swap(arr, i, 0);
+		//3.重新调整堆结构
+		adjust(arr, 0, i);
+	}
+}
+template<typename T>
+void print(const T* ar, int len) {
+	for (int j = 0; j < len; j++) {
+		cout << j << " :  " << ar[j] << endl;
+	}
+}
+int main()
+{
+	int arr[] = { 0,2,1,4,3,6,8,9,7,5 };
+	sort(arr, 10);
+	print(arr, 10);
+	system("pause");
+	return 0;
+}
+
+
+
