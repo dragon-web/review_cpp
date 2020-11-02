@@ -3,8 +3,11 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<set>
+#include<map>
 #include<algorithm>
-
+#include<unordered_map>
+#include<unordered_set>
 using namespace std;
 
 
@@ -105,7 +108,7 @@ int main()
 	system("pause");
 	return 0;
 }
-*/
+
 
 class Solution {
 public:
@@ -137,7 +140,23 @@ int main()
 	system("pause");
 	return 0;
 }
+*/
 
+int main()
+{
+	set<int> dp;
+	dp.insert(1);
+	dp.insert(1);
+	cout << dp.size()<< endl;
+	for(auto &e : dp)
+	{
+		cout << e << " ";
+	}
+	auto res = dp.find(1);
+	cout << *res << endl;
+	system("pause");
+	return 0;
+}
 
 
 
