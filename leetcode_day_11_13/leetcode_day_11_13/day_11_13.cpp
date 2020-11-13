@@ -7,6 +7,8 @@
 #include<set>
 #include<unordered_map>
 #include<unordered_set>
+#include<functional>
+#include<algorithm>
 
 using namespace std;
 
@@ -71,7 +73,7 @@ public:
 		return (dx == dy)&& (px == py);
 	}
 };
-*/
+
 
 
   class Solution {
@@ -113,6 +115,69 @@ int main()
 	a5.left = NULL;
 	a5.right = NULL;
 	cout<<a.isCousins(&a1, 4, 5)<<endl;
+	system("pause");
+	return 0;
+}
+
+
+
+class Solution {
+public:
+	int FindMax(vector<int> nums,int &index)
+	{
+		int max = nums[0];
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			if (max < nums[i])
+			{
+				max = nums[i];
+				index = i;
+			}
+		}
+		return max;
+	}
+
+	vector<int> topKFrequent(vector<int>& nums, int k) {
+		int max = nums[0];
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			max = max > nums[i] ? max : nums[i];
+		}
+		vector<int> dp;
+		dp.resize(max+1, 0);
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			dp[nums[i]]++;
+		}
+		int count = 0;
+		vector<int> res;
+		for (int j = 0; j < dp.size() && count < k; ++j)
+		{
+			int index = 0;
+			int temp = FindMax(dp,index);
+			res.push_back(index);
+			dp[index] = 0;
+			count++;
+		}
+		return res;
+	}
+};
+*/
+
+class Solution {
+public:
+	vector<int> topKFrequent(vector<int>& nums, int k) {
+		unordered_set<int> dp;
+
+	}
+};
+
+
+int main()
+{
+	vector<int> nums{1, 1, 1, 2, 2, 3};
+	Solution a;
+	auto it = a.topKFrequent(nums, 2);
 	system("pause");
 	return 0;
 }
